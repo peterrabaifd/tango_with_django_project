@@ -9,6 +9,14 @@
 	<!--Body block -->
 	<h1>Homepage</h1>
 		<div>
+		{% if user.is_authenticated %}
+			howdy {{ user.username }}!
+		{% else %}
+			hey there partner!
+		{% endif %}
+		</div>
+		
+		<div>
 		{% if categories %}
 			<ul>
 				{% for category in categories %}
