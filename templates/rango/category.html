@@ -10,8 +10,16 @@
 {% endblock %}
 
 {% block body_block %}
-	{% if category %}
-	<h1>{{ category.name }}</h1>
+		<div class="jumbotron p-4">
+			<div class="container">
+				{% if category %}
+					<h1>{{ category.name }}</h1>
+				{% else %}
+					The specified category does not exist.
+				{% endif %}
+			</div>
+		</div>
+
 	{% if pages %}
 	<ul>
 		{% for page in pages %}
@@ -20,10 +28,6 @@
 	</ul>
 	{% else %}
 	<strong>No pages currently in category.</strong>
-	{% endif %}
-
-	{% else %}
-	The specified category does not exist.
 	{% endif %}
 	
 	{% if user.is_authenticated %}
